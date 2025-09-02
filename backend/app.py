@@ -37,6 +37,7 @@ def index():
             <header>
                 <h1>Swamp Research Paper Recommender</h1>
                 <p>Discover relevant research scientific papers based on your interests</p>
+                <p>Thank you to arXiv for use of its open access interoperability.<p>
             </header>
             
             <main>
@@ -100,4 +101,5 @@ def health_check():
     return jsonify({'status': 'healthy'})
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    port = int(os.environ.get("PORT", 8080))
+    app.run(host="0.0.0.0", port=port)

@@ -1,0 +1,30 @@
+runtime: custom
+env: flex
+
+entrypoint: gunicorn -b :$PORT app:app
+
+instance_class: F2
+
+env_variables:
+  FLASK_ENV: production
+  PYTHONPATH: /srv
+
+automatic_scaling:
+  min_instances: 1
+  max_instances: 10
+  target_cpu_utilization: 0.6
+  target_throughput_utilization: 0.6
+
+handlers:
+- url: /static
+  static_dir: frontend/static
+  secure: always
+
+- url: /favicon\.ico
+  static_files: frontend/static/favicon.ico
+  upload: frontend/static/favicon\.ico
+  secure: always
+
+- url: /.*
+  script: auto
+  secure: always
