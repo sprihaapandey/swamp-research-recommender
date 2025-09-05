@@ -3,7 +3,6 @@ import sys
 from pathlib import Path
 
 current_dir = Path(__file__).parent
-
 sys.path.insert(0, str(current_dir))
 
 try:
@@ -25,6 +24,8 @@ except ImportError as e:
 except Exception as e:
     print(f"❌ Other error loading app: {e}")
     raise
+
+app = main
 
 if __name__ == '__main__':
     main.run(debug=False, host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
