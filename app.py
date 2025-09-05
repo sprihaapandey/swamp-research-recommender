@@ -1,6 +1,11 @@
 import os
 import sys
 from pathlib import Path
+import webbrowser
+import threading
+
+def open_browser():
+    webbrowser.open("http://127.0.0.1:5000")
 
 current_dir = Path(__file__).parent
 sys.path.insert(0, str(current_dir))
@@ -28,4 +33,5 @@ except Exception as e:
 app = main
 
 if __name__ == '__main__':
+    threading.Timer(1, open_browser).start()
     main.run(debug=False, host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
