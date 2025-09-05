@@ -1,1 +1,1 @@
-web: gunicorn research_recommender.wsgi
+web: gunicorn --bind :$PORT app:app

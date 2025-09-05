@@ -1,7 +1,3 @@
-"""
-Google Cloud App Engine entry point
-"""
-
 import os
 import sys
 from pathlib import Path
