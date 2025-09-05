@@ -1,5 +1,6 @@
 FROM python:3-alpine AS builder
- 
+
+COPY . /app
 WORKDIR /app
  
 RUN python3 -m venv venv

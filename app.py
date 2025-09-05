@@ -3,8 +3,8 @@ import sys
 from pathlib import Path
 
 current_dir = Path(__file__).parent
+
 sys.path.insert(0, str(current_dir))
-sys.path.insert(0, str(current_dir / 'backend'))
 
 try:
     from backend.main import main
@@ -16,8 +16,14 @@ try:
     print(f"📁 Data directory: {data_dir}")
     print(f"🔍 Data files exist: {list(data_dir.glob('*.json')) + list(data_dir.glob('*.npy')) + list(data_dir.glob('*.idx'))}")
     
+except ImportError as e:
+    print(f"❌ Error importing backend: {e}")
+    print(f"Current working directory: {os.getcwd()}")
+    print(f"Python path: {sys.path}")
+    print(f"Files in current dir: {list(current_dir.iterdir())}")
+    raise
 except Exception as e:
-    print(f"❌ Error loading app: {e}")
+    print(f"❌ Other error loading app: {e}")
     raise
 
 if __name__ == '__main__':
