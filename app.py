@@ -7,7 +7,7 @@ sys.path.insert(0, str(current_dir))
 sys.path.insert(0, str(current_dir / 'backend'))
 
 try:
-    from backend.app import app
+    from backend.main import main
     
     data_dir = current_dir / 'data'
     data_dir.mkdir(exist_ok=True)
@@ -21,4 +21,4 @@ except Exception as e:
     raise
 
 if __name__ == '__main__':
-    app.run(debug=False, host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
+    main.run(debug=False, host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))

@@ -9,7 +9,7 @@ from pathlib import Path
 backend_dir = Path(__file__).parent
 sys.path.insert(0, str(backend_dir))
 
-from app import app
+from backend.main import app
 from config import Config
 
 if not Config.validate_data_files():
