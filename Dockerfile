@@ -3,6 +3,7 @@ FROM python:3-alpine AS builder
 WORKDIR /app
  
 RUN python3 -m venv venv
+RUN apt-get update && apt-get install -y build-essential
 ENV VIRTUAL_ENV=/app/venv
 ENV PATH="$VIRTUAL_ENV/bin:$PATH"
  
