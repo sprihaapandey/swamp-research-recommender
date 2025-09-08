@@ -36,7 +36,7 @@ pip install -r requirements.txt
 
 ### Run the app
 ```bash
-python app.py
+python main.py
 ```
 
 Visit [http://localhost:5000](http://localhost:5000) to try it.
